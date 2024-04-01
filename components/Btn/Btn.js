@@ -1,5 +1,5 @@
-export default function Btn() {
+export default function Btn({ text }) {
     return (
-        <button>Click Me!</button>
+        <button>{text}</button>
     )
 }

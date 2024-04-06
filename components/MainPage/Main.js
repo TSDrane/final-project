@@ -13,7 +13,6 @@ const MainPage = ()=> {
             const data = await response.json();
             setRecipeData(data.meals[0])
         };
-        
         fetchRecipe();
     },[]);
 
@@ -28,7 +27,21 @@ const MainPage = ()=> {
             <Btn text="Desserts" />
         </div>
         <div>
-            {recipeData && <h1>{recipeData.strMeal}</h1>}
+            <h3>Random Recipe!</h3>
+            {recipeData && (
+                <>
+                <h2>{recipeData.strMeal}</h2>
+                <img src={recipeData.strMealThumb}/>
+                <p>Ingredients:</p>
+                <ul>
+                    <li>
+                    {recipeData.strMeasure1} {recipeData.strIngredient1}  
+                    </li>
+                </ul>
+                <p>Method:</p>
+                <p>{recipeData.strInstructions}</p> 
+                </>
+            )}
         </div>
         </>    
     );

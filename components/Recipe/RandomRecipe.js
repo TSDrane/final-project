@@ -23,6 +23,24 @@ const DisplayRandomRecipe = ()=> {
         fetchRecipe();
 
     }, []);
+
+    const renderIngredients = () => {
+        const ingredients = [];
+        for (let i=1; i <= 20; i++){
+            const ingredient = recipeData[`strIngredient${i}`];
+            const measurement = recipeData[`strMeasure${i}`];
+            if (ingredient && measurement) {
+                ingredients.push(
+                    <li key={i}>
+                        {measurement} {ingredient}
+                    </li>
+                );
+            }
+        }
+
+        return ingredients;
+        
+    };
     
     return (    
         <div>
@@ -33,9 +51,7 @@ const DisplayRandomRecipe = ()=> {
                 <img src={recipeData.strMealThumb} alt={recipeData.strMeal} />
                 <p>Ingredients:</p>
                 <ul>
-                    <li>
-                        {recipeData.strMeasure1} {recipeData.strIngredient1}  
-                    </li>
+                    {renderIngredients()}  
                 </ul>
                 <p>Method:</p>
                 <p>{recipeData.strInstructions}</p>

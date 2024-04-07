@@ -8,7 +8,7 @@ const DisplayRandomRecipe = ()=> {
         
         const fetchRecipe = async () => {
             try {
-                const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`
+                const url = `https://www.themealdb.com/api/json/v1/1/random.php`
                 const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -32,7 +32,7 @@ const DisplayRandomRecipe = ()=> {
             if (ingredient && measurement) {
                 ingredients.push(
                     <li key={i}>
-                        {measurement} {ingredient}
+                        {ingredient} - {measurement}
                     </li>
                 );
             }

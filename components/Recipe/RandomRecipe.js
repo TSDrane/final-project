@@ -41,6 +41,13 @@ const DisplayRandomRecipe = ()=> {
         return ingredients;
         
     };
+
+    const renderInstructions = () => {
+        if (!recipeData) return null;
+        return recipeData.strInstructions.split("\n").map((line, index) => (
+            <p key={index}>{line}</p>
+        ));
+    };
     
     return (    
         <div>
@@ -54,7 +61,7 @@ const DisplayRandomRecipe = ()=> {
                     {renderIngredients()}  
                 </ul>
                 <p>Method:</p>
-                <p>{recipeData.strInstructions}</p>
+                {renderInstructions()}
             </>
             )}
         </div> 

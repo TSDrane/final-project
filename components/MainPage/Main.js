@@ -97,14 +97,29 @@ const fetchVegetarian = async () => {
     setRecipe(recipeData.meals[0]);
 };
 
+const fetchDessert = async () => {
+
+    const responseDessert = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert');
+    const dataDessert = await responseDessert.json();
+
+    const randomIndex = Math.floor(Math.random() * dataDessert.meals.length);
+    const randomRecipeId = dataDessert.meals[randomIndex].idMeal;
+
+    const recipeResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${randomRecipeId}`);
+    const recipeData = await recipeResponse.json();
+
+    setRecipe(recipeData.meals[0]);
+};
+
 
 return (
     <div>
-    <h1>Random Global Recipe!</h1>
-    <button onClick={fetchBreakfast}>Get Breakfast</button>
-    <button onClick={fetchMains}>Get Main Meals</button>
-    <button onClick={fetchVegetarian}>Get Main Vegetarian Meals</button>
-    {recipe && <DisplayRecipe recipe={recipe} />}
+        <h1>Random Global Recipe!</h1>
+        <button onClick={fetchBreakfast}>Get Breakfast</button>
+        <button onClick={fetchMains}>Get Main Meals</button>
+        <button onClick={fetchVegetarian}>Get Main Vegetarian Meals</button>
+        <button onClick={fetchDessert}>Get Desserts</button>
+        {recipe && <DisplayRecipe recipe={recipe} />}
     </div>
 );
 }

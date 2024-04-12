@@ -1,3 +1,0 @@
-const RECIPE_API_KEY = process.env.NEXT_PUBLIC_RECIPE_API_KEY
-
-export { RECIPE_API_KEY };

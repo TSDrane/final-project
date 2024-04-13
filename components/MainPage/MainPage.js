@@ -168,11 +168,12 @@ const mealCategoryFetchFunctions = [
 return (
     <div>
         <h1>Random Global Recipe!</h1>
-        <div className={styles.recipeButtons}>
-        <Button variant="contained" onClick={fetchBreakfast}>Breakfast</Button>
-        <Button variant="contained" onClick={fetchDessert}>Desserts</Button>
-        </div>
+        <div>
+        <Button className={styles.recipeButtons} variant="contained" onClick={fetchBreakfast}>Breakfast</Button>
         <SplitButton mealCategories={mealCategories} mealCategoryFetchFunctions={mealCategoryFetchFunctions} />
+        <Button className={styles.recipeButtons} variant="contained" onClick={fetchDessert}>Desserts</Button>
+        </div>
+        
         {recipe && <DisplayRecipe recipe={recipe} />}
     </div>
 );

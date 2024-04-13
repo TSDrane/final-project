@@ -1,4 +1,4 @@
-.recipeButtons Button {
-    margin: 5px;
-    width: 250px;
+.recipeButtons {
+    margin: 10px;
+    width: 200px;
 }

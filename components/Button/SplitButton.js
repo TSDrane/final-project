@@ -9,90 +9,87 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
-const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge'];
+export default function SplitButton({ mealCategories, mealCategoryFetchFunctions }) {
+    const [open, setOpen] = React.useState(false);
+    const anchorRef = React.useRef(null);
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-export default function SplitButton() {
-const [open, setOpen] = React.useState(false);
-const anchorRef = React.useRef(null);
-const [selectedIndex, setSelectedIndex] = React.useState(1);
+    const handleClick = () => {
+        mealCategoryFetchFunctions[selectedIndex]();
+    };
 
-const handleClick = () => {
-console.info(`You clicked ${options[selectedIndex]}`);
-};
+    const handleMenuItemClick = (index) => {
+    setSelectedIndex(index);
+    setOpen(false);
+    };
 
-const handleMenuItemClick = (event, index) => {
-setSelectedIndex(index);
-setOpen(false);
-};
+    const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+    };
 
-const handleToggle = () => {
-setOpen((prevOpen) => !prevOpen);
-};
+    const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+        return;
+    }
 
-const handleClose = (event) => {
-if (anchorRef.current && anchorRef.current.contains(event.target)) {
-    return;
-}
+    setOpen(false);
+    };
 
-setOpen(false);
-};
-
-return (
-<React.Fragment>
-    <ButtonGroup
-    variant="contained"
-    ref={anchorRef}
-    aria-label="Button group with a nested menu"
-    >
-    <Button onClick={handleClick}>{options[selectedIndex]}</Button>
-    <Button
-        size="small"
-        aria-controls={open ? 'split-button-menu' : undefined}
-        aria-expanded={open ? 'true' : undefined}
-        aria-label="select merge strategy"
-        aria-haspopup="menu"
-        onClick={handleToggle}
-    >
-        <ArrowDropDownIcon />
-    </Button>
-    </ButtonGroup>
-    <Popper
-    sx={{
-        zIndex: 1,
-    }}
-    open={open}
-    anchorEl={anchorRef.current}
-    role={undefined}
-    transition
-    disablePortal
-    >
-    {({ TransitionProps, placement }) => (
-        <Grow
-        {...TransitionProps}
-        style={{
-            transformOrigin:
-            placement === 'bottom' ? 'center top' : 'center bottom',
-        }}
+    return (
+    <React.Fragment>
+        <ButtonGroup
+        variant="contained"
+        ref={anchorRef}
+        aria-label="Button group with a nested menu"
         >
-        <Paper>
-            <ClickAwayListener onClickAway={handleClose}>
-            <MenuList id="split-button-menu" autoFocusItem>
-                {options.map((option, index) => (
-                <MenuItem
-                    key={option}
-                    disabled={index === 2}
-                    selected={index === selectedIndex}
-                    onClick={(event) => handleMenuItemClick(event, index)}
-                >
-                    {option}
-                </MenuItem>
-                ))}
-            </MenuList>
-            </ClickAwayListener>
-        </Paper>
-        </Grow>
-    )}
-    </Popper>
-</React.Fragment>
-);
+        <Button onClick={handleClick}>{mealCategories[selectedIndex]}</Button>
+        <Button
+            size="small"
+            aria-controls={open ? 'split-button-menu' : undefined}
+            aria-expanded={open ? 'true' : undefined}
+            aria-label="select merge strategy"
+            aria-haspopup="menu"
+            onClick={handleToggle}
+        >
+            <ArrowDropDownIcon />
+        </Button>
+        </ButtonGroup>
+        <Popper
+        sx={{
+            zIndex: 1,
+        }}
+        open={open}
+        anchorEl={anchorRef.current}
+        role={undefined}
+        transition
+        disablePortal
+        >
+        {({ TransitionProps, placement }) => (
+            <Grow
+            {...TransitionProps}
+            style={{
+                transformOrigin:
+                placement === 'bottom' ? 'center top' : 'center bottom',
+            }}
+            >
+            <Paper>
+                <ClickAwayListener onClickAway={handleClose}>
+                <MenuList id="split-button-menu" autoFocusItem>
+                    {mealCategories.map((mealCategory, index) => (
+                    <MenuItem
+                        key={mealCategory}
+                        selected={index === selectedIndex}
+                        onClick={() => handleMenuItemClick(index)}
+                    >
+                        {mealCategory}
+                    </MenuItem>
+                    ))}
+                </MenuList>
+                </ClickAwayListener>
+            </Paper>
+            </Grow>
+        )}
+        </Popper>
+    </React.Fragment>
+    );
 }

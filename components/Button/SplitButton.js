@@ -8,6 +8,7 @@ import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
+import styles from "./splitbutton.module.css"
 
 export default function SplitButton({ mealCategories, mealCategoryFetchFunctions }) {
     const [open, setOpen] = React.useState(false);
@@ -42,8 +43,9 @@ export default function SplitButton({ mealCategories, mealCategoryFetchFunctions
         ref={anchorRef}
         aria-label="Button group with a nested menu"
         >
-        <Button onClick={handleClick}>{mealCategories[selectedIndex]}</Button>
+        <Button className={styles.splitButton} onClick={handleClick}>{mealCategories[selectedIndex]}</Button>
         <Button
+            className={styles.splitArrow}
             size="small"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}

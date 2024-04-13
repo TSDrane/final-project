@@ -173,7 +173,6 @@ return (
         <SplitButton mealCategories={mealCategories} mealCategoryFetchFunctions={mealCategoryFetchFunctions} />
         <Button className={styles.recipeButtons} variant="contained" onClick={fetchDessert}>Desserts</Button>
         </div>
-        
         {recipe && <DisplayRecipe recipe={recipe} />}
     </div>
 );

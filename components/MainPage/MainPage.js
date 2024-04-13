@@ -42,44 +42,6 @@ const fetchBreakfast = async () => {
     setRecipe(recipeData.meals[0]);
 };
 
-const fetchMains = async () => {
-
-    const responseBeef = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef');
-    const dataBeef = await responseBeef.json();
-
-    const responseChicken = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken');
-    const dataChicken = await responseChicken.json();
-
-    const responseLamb = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Lamb');
-    const dataLamb = await responseLamb.json();
-
-    const responsePork = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pork');
-    const dataPork = await responsePork.json();
-
-    const responsePasta = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pasta');
-    const dataPasta = await responsePasta.json();
-
-    const seafoodResponse = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
-    const dataSeafood = await seafoodResponse.json();
-
-    const recipes = [
-        ...dataBeef.meals,
-        ...dataChicken.meals,
-        ...dataLamb.meals,
-        ...dataPork.meals,
-        ...dataPasta.meals,
-        ...dataSeafood.meals
-    ];
-
-    const randomIndex = Math.floor(Math.random() * recipes.length);
-    const randomRecipeId = recipes[randomIndex].idMeal;
-
-    const recipeResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${randomRecipeId}`);
-    const recipeData = await recipeResponse.json();
-
-    setRecipe(recipeData.meals[0]);
-};
-
 const fetchBeef = async () => {
 
     const responseBeef = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef');
@@ -192,7 +154,7 @@ const fetchDessert = async () => {
     setRecipe(recipeData.meals[0]);
 };
 
-const mealCategory = ["Beef","Chicken","Lamb","Pork","Pasta","Seafood","Vegetarian"];
+const mealCategories = ["Beef","Chicken","Lamb","Pork","Pasta","Seafood","Vegetarian"];
 const mealCategoryFetchFunctions = [
     fetchBeef,
     fetchChicken,
@@ -208,11 +170,9 @@ return (
         <h1>Random Global Recipe!</h1>
         <div className={styles.recipeButtons}>
         <Button variant="contained" onClick={fetchBreakfast}>Breakfast</Button>
-        <Button variant="contained" onClick={fetchMains}>Main Meals</Button>
-        <Button variant="contained" onClick={fetchVegetarian}>Vegetarian Meals</Button>
         <Button variant="contained" onClick={fetchDessert}>Desserts</Button>
         </div>
-        <SplitButton mealCategory={mealCategory} mealCategoryFetchFunctions={mealCategoryFetchFunctions} />
+        <SplitButton mealCategories={mealCategories} mealCategoryFetchFunctions={mealCategoryFetchFunctions} />
         {recipe && <DisplayRecipe recipe={recipe} />}
     </div>
 );

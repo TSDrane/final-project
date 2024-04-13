@@ -1,4 +1,4 @@
-import { MainPage } from "@/components/MainPage/Main";
+import { MainPage } from "@/components/MainPage/MainPage";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });

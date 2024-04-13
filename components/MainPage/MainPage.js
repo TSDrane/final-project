@@ -154,7 +154,7 @@ const fetchDessert = async () => {
     setRecipe(recipeData.meals[0]);
 };
 
-const mealCategories = ["Beef","Chicken","Lamb","Pork","Pasta","Seafood","Vegetarian"];
+const mealCategories = ["Beef Mains","Chicken Mains","Lamb Mains","Pork Mains","Pasta Mains","Seafood Mains","Vegetarian Mains"];
 const mealCategoryFetchFunctions = [
     fetchBeef,
     fetchChicken,

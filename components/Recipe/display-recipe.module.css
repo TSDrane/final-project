@@ -1,0 +1,9 @@
+.recipeImage {
+    max-width: 500px;
+    border-radius:20px;
+}
+
+.ingredientList {
+    list-style: none;
+    padding: 0;
+}

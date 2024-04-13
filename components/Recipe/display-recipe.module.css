@@ -1,0 +1,15 @@
+.recipeImage {
+    max-width: 500px;
+    border: solid #000814 5px;
+    border-radius:20px;
+}
+
+.ingredientList {
+    list-style: none;
+    padding: 0;
+}
+
+.ingrAndInstr {
+    max-width: 800px;
+    margin: 0 auto;
+}

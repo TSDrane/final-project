@@ -1,3 +1,5 @@
+import styles from "./display-recipe.module.css"
+
 const DisplayRecipe = ({ recipe }) => {
 
     const renderIngredients = () => {
@@ -27,13 +29,15 @@ const DisplayRecipe = ({ recipe }) => {
         <div>
             <h2>{recipe.strMeal}</h2>
             <h4>{recipe.strArea}</h4>
-            <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-            <h3>Ingredients</h3>
-            <ul>
+            <img className={styles.recipeImage} src={recipe.strMealThumb} alt={recipe.strMeal} />
+            <div className={styles.ingrAndInstr}>
+                <h3>Ingredients</h3>
+                <ul className={styles.ingredientList}>
                 {renderIngredients()}
-            </ul>
-            <h3>Instructions</h3>
-            <p>{renderInstructions()}</p>
+                </ul>
+                <h3>Instructions</h3>
+                <p>{renderInstructions()}</p>
+            </div>
         </div>
     );
 }

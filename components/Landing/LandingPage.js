@@ -5,7 +5,7 @@ import styles from './landing-page.module.css'
 const LandingPage = () => {
     return (
         <div className={styles.landing}>
-            <h1>Welcome to FeedMe!</h1>
+            <h1 className={styles.heading}>Welcome to FeedMe!</h1>
                 <p>Explore an array of diverse recipes 
                 sourced from every corner of the globe. 
                 Whether you crave the spice of Indian curry, 

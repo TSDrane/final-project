@@ -32,7 +32,7 @@ const DisplayRecipe = ({ recipe }) => {
 
     return (
         <div className={styles.content}>
-            <h1>{recipe.strMeal}</h1>
+            <h2 className={styles.recipeTitle}>{recipe.strMeal}</h2>
             <h4>🌏 {recipe.strArea} {recipe.strCategory} Recipe</h4>
             <img className={styles.recipeImage} src={recipe.strMealThumb} alt={recipe.strMeal} />
             <div className={styles.ingrAndInstr}>

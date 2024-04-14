@@ -1,8 +1,12 @@
 .recipeImage {
     max-width: 500px;
-    border: solid #000814 5px;
+    border: solid #001329 5px;
     border-radius:20px;
     margin-bottom:20px;
+}
+
+.recipeTitle {
+    font-size: 30px;
 }
 
 .ingredientList {

@@ -15,7 +15,7 @@ const LandingPage = () => {
                 <p>Click the button below to embark on your gastronomic journey 
                 and discover your next favorite recipe!</p>
             <Link href="/main">
-                <Button variant="contained">Go!</Button>
+                <Button className={styles.toMain} variant="contained">Feed Me!</Button>
             </Link>
         </div>
 

@@ -165,15 +165,24 @@ const mealCategoryFetchFunctions = [
     fetchVegetarian
 ];
 
+const resetView = () => {
+    window.scrollTo ({
+        top:0,
+        behaviour: "smooth"
+    });
+};
+
 return (
     <div>
-        <h1>Random Global Recipe!</h1>
-        <div>
-        <Button className={styles.recipeButtons} variant="contained" onClick={fetchBreakfast}>Breakfast</Button>
+        <div className={styles.head}>
+        <h1>FeedMe</h1>
+        <Button className={styles.recipeButtons} variant="contained" onClick={()=> {fetchBreakfast(); resetView();}}>Breakfast</Button>
         <SplitButton mealCategories={mealCategories} mealCategoryFetchFunctions={mealCategoryFetchFunctions} />
-        <Button className={styles.recipeButtons} variant="contained" onClick={fetchDessert}>Desserts</Button>
+        <Button className={styles.recipeButtons} variant="contained" onClick={()=> {fetchDessert(); resetView();}}>Desserts</Button>
         </div>
+        <div className={styles.content}>
         {recipe && <DisplayRecipe recipe={recipe} />}
+        </div>
     </div>
 );
 }

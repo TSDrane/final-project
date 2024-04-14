@@ -15,14 +15,23 @@ export default function SplitButton({ mealCategories, mealCategoryFetchFunctions
     const anchorRef = React.useRef(null);
     const [selectedIndex, setSelectedIndex] = React.useState(0);
 
+    const resetView = () => {
+        window.scrollTo ({
+            top:0,
+            behaviour: "smooth"
+        });
+    }; 
+
     const handleClick = () => {
         mealCategoryFetchFunctions[selectedIndex]();
+        resetView();
     };
 
     const handleMenuItemClick = (index) => {
     setSelectedIndex(index);
     setOpen(false);
-    mealCategoryFetchFunctions[index]();    
+    mealCategoryFetchFunctions[index](); 
+    resetView();   
     };
 
     const handleToggle = () => {

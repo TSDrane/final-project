@@ -1,4 +1,5 @@
 import styles from "./display-recipe.module.css"
+import { Button } from "@mui/material";
 
 const DisplayRecipe = ({ recipe }) => {
 
@@ -25,17 +26,24 @@ const DisplayRecipe = ({ recipe }) => {
         ));
     };
 
+    const openVideo = () =>{
+        window.open(`${recipe.strYoutube}`, "_blank");
+    }
+
     return (
-        <div>
-            <h2>{recipe.strMeal}</h2>
-            <h4>{recipe.strArea}</h4>
+        <div className={styles.content}>
+            <h1>{recipe.strMeal}</h1>
+            <h4>🌏 {recipe.strArea} {recipe.strCategory} Recipe</h4>
             <img className={styles.recipeImage} src={recipe.strMealThumb} alt={recipe.strMeal} />
             <div className={styles.ingrAndInstr}>
-                <h3>Ingredients</h3>
+                <h2>Ingredients</h2>
                 <ul className={styles.ingredientList}>
                 {renderIngredients()}
                 </ul>
-                <h3>Instructions</h3>
+                <h2>Instructions</h2>
+                {recipe.strYoutube && (
+                    <Button className={styles.openVideo} variant="contained" onClick={openVideo}>Show me</Button>
+                )}
                 <p>{renderInstructions()}</p>
             </div>
         </div>

@@ -17,6 +17,10 @@
     padding-top: 180px;
 }
 
+.feedMe {
+    font-size: 45px;
+}
+
 @media (max-width: 575.98px) {
 .recipeButtons {
     margin: 20px;

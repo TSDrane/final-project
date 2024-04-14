@@ -256,7 +256,7 @@ const resetView = () => {
 return (
     <div>
         <div className={styles.head}>
-        <h1>FeedMe</h1>
+        <h1 className={styles.feedMe}>FeedMe</h1>
         <Button className={styles.recipeButtons} variant="contained" onClick={()=> {fetchBreakfast(); resetView();}}>Breakfast</Button>
         <SplitButton mealCategories={mealCategories} mealCategoryFetchFunctions={mealCategoryFetchFunctions} />
         <Button className={styles.recipeButtons} variant="contained" onClick={()=> {fetchDessert(); resetView();}}>Desserts</Button>

@@ -22,6 +22,7 @@ export default function SplitButton({ mealCategories, mealCategoryFetchFunctions
     const handleMenuItemClick = (index) => {
     setSelectedIndex(index);
     setOpen(false);
+    mealCategoryFetchFunctions[index]();    
     };
 
     const handleToggle = () => {
@@ -45,7 +46,6 @@ export default function SplitButton({ mealCategories, mealCategoryFetchFunctions
         >
         <Button className={styles.splitButton} onClick={handleClick}>{mealCategories[selectedIndex]}</Button>
         <Button
-            className={styles.splitArrow}
             size="small"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}

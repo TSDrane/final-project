@@ -2,16 +2,24 @@
     max-width: 500px;
     border: solid #000814 5px;
     border-radius:20px;
+    margin-bottom:20px;
 }
 
 .ingredientList {
     list-style: none;
     padding: 0;
+    margin-bottom: 60px; 
 }
 
 .ingrAndInstr {
     max-width: 800px;
     margin: 0 auto;
+}
+
+.openVideo {
+    width: 224px;
+    font-weight: bold;
+    
 }
 
 @media (max-width: 575.98px) {
@@ -25,4 +33,11 @@
         max-width: 90%;
         margin: 0 auto;
 }
+
+.openVideo {
+    width: 224px;
+    font-weight: bold;
+}
+
+
 }

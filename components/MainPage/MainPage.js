@@ -8,11 +8,13 @@ import SplitButton from '../Button/SplitButton';
 
 const MainPage = ()=> {
     const [recipe, setRecipe] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect (() => {
         
         const loadRandomRecipe = async () => {
         try {
+            setLoading(true);
             const url = `https://www.themealdb.com/api/json/v1/1/random.php`
             const response = await fetch(url);
             if (!response.ok) {
@@ -20,8 +22,10 @@ const MainPage = ()=> {
             }
             const data = await response.json();
             setRecipe(data.meals[0])
+            setLoading(false);
         } catch (error) {
             console.log("Failed to fetch recipe: ", error); 
+            setLoading(false);
         }
     };
     loadRandomRecipe();
@@ -30,6 +34,7 @@ const MainPage = ()=> {
 
 const fetchBreakfast = async () => {
     try {
+    setLoading(true);
     const responseBreakfast = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast');
     if (!responseBreakfast.ok) {
         throw new Error(`HTTP error! status: ${responseBreakfast.status}`);
@@ -46,13 +51,16 @@ const fetchBreakfast = async () => {
     const recipeData = await recipeResponse.json();
 
     setRecipe(recipeData.meals[0]);
+    setLoading(false);
     } catch (error) {
-        console.log("Failed to fetch recipe: ", error); 
+        console.log("Failed to fetch recipe: ", error);
+        setLoading(false); 
     }
 };
 
 const fetchBeef = async () => {
     try {
+        setLoading(true);
         const responseBeef = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef');
         if (!responseBeef.ok) {
             throw new Error(`HTTP error! status: ${responseBeef.status}`);
@@ -69,13 +77,16 @@ const fetchBeef = async () => {
         const recipeData = await recipeResponse.json();
     
         setRecipe(recipeData.meals[0]);
+        setLoading(false);
         } catch (error) {
-            console.log("Failed to fetch recipe: ", error); 
+            console.log("Failed to fetch recipe: ", error);
+            setLoading(false); 
         }
 };
 
 const fetchChicken = async () => {
     try {
+        setLoading(true);
         const responseChicken = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken');
         if (!responseChicken.ok) {
             throw new Error(`HTTP error! status: ${responseChicken.status}`);
@@ -92,13 +103,16 @@ const fetchChicken = async () => {
         const recipeData = await recipeResponse.json();
     
         setRecipe(recipeData.meals[0]);
+        setLoading(false);
         } catch (error) {
-            console.log("Failed to fetch recipe: ", error); 
+            console.log("Failed to fetch recipe: ", error);
+            setLoading(false); 
         }
 };
 
 const fetchLamb = async () => {
     try {
+        setLoading(true);
         const responseLamb = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Lamb');
         if (!responseLamb.ok) {
             throw new Error(`HTTP error! status: ${responseLamb.status}`);
@@ -115,13 +129,16 @@ const fetchLamb = async () => {
         const recipeData = await recipeResponse.json();
     
         setRecipe(recipeData.meals[0]);
+        setLoading(false);
         } catch (error) {
-            console.log("Failed to fetch recipe: ", error); 
+            console.log("Failed to fetch recipe: ", error);
+            setLoading(false); 
         }
 };
 
 const fetchPork = async () => {
     try {
+        setLoading(true);
         const responsePork = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pork');
         if (!responsePork.ok) {
             throw new Error(`HTTP error! status: ${responsePork.status}`);
@@ -138,13 +155,16 @@ const fetchPork = async () => {
         const recipeData = await recipeResponse.json();
     
         setRecipe(recipeData.meals[0]);
+        setLoading(false);
         } catch (error) {
-            console.log("Failed to fetch recipe: ", error); 
+            console.log("Failed to fetch recipe: ", error);
+            setLoading(false); 
         }
 };
 
 const fetchPasta = async () => {
     try {
+        setLoading(true);
         const responsePasta = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pasta');
         if (!responsePasta.ok) {
             throw new Error(`HTTP error! status: ${responsePasta.status}`);
@@ -161,13 +181,16 @@ const fetchPasta = async () => {
         const recipeData = await recipeResponse.json();
     
         setRecipe(recipeData.meals[0]);
+        setLoading(false);
         } catch (error) {
-            console.log("Failed to fetch recipe: ", error); 
+            console.log("Failed to fetch recipe: ", error);
+            setLoading(false); 
         }
 };
 
 const fetchSeafood = async () => {
     try {
+        setLoading(true);
         const responseSeafood = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
         if (!responseSeafood.ok) {
             throw new Error(`HTTP error! status: ${responseSeafood.status}`);
@@ -184,13 +207,16 @@ const fetchSeafood = async () => {
         const recipeData = await recipeResponse.json();
     
         setRecipe(recipeData.meals[0]);
+        setLoading(false);
         } catch (error) {
-            console.log("Failed to fetch recipe: ", error); 
+            console.log("Failed to fetch recipe: ", error);
+            setLoading(false); 
         }
 };
 
 const fetchVegetarian = async () => {
     try {
+        setLoading(true);
         const responseVegetarian = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian');
         if (!responseVegetarian.ok) {
             throw new Error(`HTTP error! status: ${responseVegetarian.status}`);
@@ -207,13 +233,16 @@ const fetchVegetarian = async () => {
         const recipeData = await recipeResponse.json();
     
         setRecipe(recipeData.meals[0]);
+        setLoading(false);
         } catch (error) {
-            console.log("Failed to fetch recipe: ", error); 
+            console.log("Failed to fetch recipe: ", error);
+            setLoading(false); 
         }
 };
 
 const fetchDessert = async () => {
     try {
+        setLoading(true);
         const responseDessert = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert');
         if (!responseDessert.ok) {
             throw new Error(`HTTP error! status: ${responseDessert.status}`);
@@ -230,8 +259,10 @@ const fetchDessert = async () => {
         const recipeData = await recipeResponse.json();
     
         setRecipe(recipeData.meals[0]);
+        setLoading(false);
         } catch (error) {
-            console.log("Failed to fetch recipe: ", error); 
+            console.log("Failed to fetch recipe: ", error);
+            setLoading(false); 
         }
 };
 
@@ -262,7 +293,11 @@ return (
         <Button className={styles.recipeButtons} variant="contained" onClick={()=> {fetchDessert(); resetView();}}>Desserts</Button>
         </div>
         <div className={styles.content}>
-        {recipe && <DisplayRecipe recipe={recipe} />}
+        {loading ? (
+            <p className={styles.loading}>🔎 Finding Recipe...</p>
+        ):(
+            recipe && <DisplayRecipe recipe={recipe} />
+        )}
         </div>
     </div>
 );

@@ -8,7 +8,9 @@
 .ingredientList {
     list-style: none;
     padding: 0;
-    margin-bottom: 60px; 
+    padding-bottom: 30px;
+    margin-bottom: 30px; 
+    border-bottom: solid #FFF 2px;
 }
 
 .ingrAndInstr {
@@ -19,7 +21,8 @@
 .openVideo {
     width: 224px;
     font-weight: bold;
-    
+    margin-bottom: 20px;
+    z-index: 1;
 }
 
 @media (max-width: 575.98px) {
@@ -37,7 +40,7 @@
 .openVideo {
     width: 224px;
     font-weight: bold;
+    z-index: 1;
 }
-
 
 }

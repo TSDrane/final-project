@@ -1,5 +1,13 @@
 body {
   text-align: center;
-  background-color: #001d3d;
+  background-color: #000b3f;
+  background-image: url('../components/Images/bluefood.png');
+  background-size: cover;
+  background-attachment: fixed;
   color: #fff;
+
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

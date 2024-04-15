@@ -33,7 +33,7 @@ const DisplayRecipe = ({ recipe }) => {
     return (
         <div className={styles.content}>
             <h2 className={styles.recipeTitle}>{recipe.strMeal}</h2>
-            <h4>🌏 {recipe.strArea} {recipe.strCategory} Recipe</h4>
+            <h3>🌏 {recipe.strArea} {recipe.strCategory} Recipe</h3>
             <img className={styles.recipeImage} src={recipe.strMealThumb} alt={recipe.strMeal} />
             <div className={styles.ingrAndInstr}>
                 <h2>Ingredients</h2>
@@ -44,7 +44,7 @@ const DisplayRecipe = ({ recipe }) => {
                 {recipe.strYoutube && (
                     <Button className={styles.openVideo} variant="contained" onClick={openVideo}>Show me</Button>
                 )}
-                <p>{renderInstructions()}</p>
+                <p className={styles.instructions}>{renderInstructions()}</p>
             </div>
         </div>
     );

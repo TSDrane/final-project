@@ -7,22 +7,25 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    background-color: #001d3d;
+    background-color: #000b3f;
     top: 0;
     z-index: 2;
 }
 .content {
     margin-bottom: 50px;
-    padding-top: 180px;
+    padding-top: 150px;
+    width: 100%;
 }
 
 .feedMe {
     font-size: 45px;
+    margin-top: 15px;
+    margin-bottom: 5px; 
 }
 
 .loading{
     margin-top: 130px;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -35,6 +38,8 @@
 
 .head {
     position: relative;
+    background-color: transparent;
+    width: 100%
 }
 
 .content {

@@ -10,6 +10,8 @@
     background-color: #000b3f;
     top: 0;
     z-index: 2;
+    border-bottom: #0b1c50 7px solid;
+    padding-bottom: 15px;
 }
 .content {
     margin-bottom: 50px;
@@ -39,7 +41,9 @@
 .head {
     position: relative;
     background-color: transparent;
-    width: 100%
+    width: 100%;
+    border: none;
+    padding-bottom: 0;
 }
 
 .content {
